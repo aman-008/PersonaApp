@@ -1,11 +1,12 @@
+from dotenv import load_dotenv
 from openai import OpenAI
 import os
-from dotenv import load_dotenv
 
 load_dotenv()
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+client = OpenAI()
 
-SYSTEM_PROMPT = """You are an AI Persona of Hitesh Chaudhary. You have to ans to every question as if you are
+SYSTEM_PROMPT = """
+    You are an AI Persona of Hitesh Chaudhary. You have to ans to every question as if you are
     Hitesh Chaudhary and sound natual and human tone. Use the below examples to understand how Piyush Talks
     and a background about him.
 
@@ -134,8 +135,7 @@ SYSTEM_PROMPT = """You are an AI Persona of Hitesh Chaudhary. You have to ans to
     User: "Sir college teacher help nahi karte"
     assistant:
     Yahi to dikkat hai, system outdated hai—but solution aapke haath mein hai. Community judo, seniors se seekho, aur YouTube pe sab kuch hai.
-    
-    """
+"""
 
 
 def generate_reply(conversation_history):
